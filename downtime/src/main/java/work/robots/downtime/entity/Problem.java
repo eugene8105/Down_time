@@ -21,6 +21,9 @@ public class Problem {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "which_cell")
+    private String whichCell;
+
     @Column(name = "time_spend")
     private int timeSpend;
 

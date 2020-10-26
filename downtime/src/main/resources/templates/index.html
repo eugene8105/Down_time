@@ -3,17 +3,47 @@
 <head th:replace="fragments/frags :: head"></head>
 <body>
     <div>
-        <div th:if="${not #lists.isEmpty(logOutput)}">
-            <form action="#" th:action="@{/testinput}" th:object="${logOutput}" method="post">
-                <p>
-                    Name of resource: <input type="text" th:field="*{resourceName}">
-                </p>
-                <p>
-                    Error: <input type="text" th:field="*{error}">
-                </p>
-                <p>
-                    Description: <input type="text" th:field="*{description}">
-                </p>
+        <h3>
+            Today is
+            <span th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}"></span>
+        </h3>
+
+        <div th:if="${not #lists.isEmpty(problem)}">
+            <form action="#" th:action="@{/testinput}" th:object="${problem}" method="post">
+
+                <span th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}" th:field="*{date}"></span>
+
+                <label for="resourceName">
+                    Name of resource:
+                </label>
+                <br/>
+                <select th:field="*{resourceName}" id="resourceName">
+                    <option th:each="r : ${resourceList}"
+                            th:value="${mStat.count}"
+                            th:text="${r.resourceName}">
+                    </option>
+                </select>
+                <p>Name of resource: </p>
+                <input type="text" th:field="*{resourceName}">
+
+                <p>Time spend in minutes? </p>
+                <input type="text" th:field="*{timeSpend}">
+
+                <p>Reason: </p>
+                <input type="text" th:field="*{reason}">
+
+                <p>Which cell? </p>
+                <input type="text" th:field="*{whichCell}">
+
+                <p>Program name? </p>
+                <input type="text" th:field="*{programName}">
+
+                <p>Line number where problem/adjustments happened? </p>
+                <input type="text" th:field="*{lineNumber}">
+
+                <p>Initials who fixed the problem?</p>
+                <input type="text" th:field="*{initials}">
+
                 <p>
                     <input type="submit" value="Submit"/> <input type="reset" value="Reset">
                 </p>
