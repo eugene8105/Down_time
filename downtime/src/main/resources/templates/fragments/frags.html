@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}"></title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+<!--    <script th:src="@{/js/script.js}"></script>-->
+
+</head>
+<body>
+
+    <header th:fragment="header">
+        <nav class="navBar">
+            <div class="div1">
+                <a th:href="@{/}">
+                    <img th:src="@{/img/yaar-logo.jpg}" alt="You Are a Resource Logo">
+                </a>
+            </div>
+            <div class="div2">
+                <li><a href="default.asp">Home</a></li>
+            </div>
+
+        </nav>
+    </header>
+
+    <footer th:fragment="disclaimer">
+        <a>Use inside Argon IND only.</a>
+    </footer>
+
+</body>
+</html>
