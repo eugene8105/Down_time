@@ -1,12 +1,14 @@
 package work.robots.downtime.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import work.robots.downtime.entity.Resource;
 import work.robots.downtime.dto.ResourceRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ResourceListServiceImpl implements ResourceListService {
 
     @Autowired
