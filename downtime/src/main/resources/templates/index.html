@@ -13,16 +13,20 @@
 
                 <span th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}" th:field="*{date}"></span>
 
-                <label for="resource">
+                <label for="resourceList">
                     Name of resource:
                 </label>
                 <br/>
-                <select th:field="*{resource}" id="resource">
+
+<!--                Problem is here.-->
+                <select th:field="*{resourceList}" id="resourceList">
                     <option th:each="r : ${resourceList}"
                             th:value="${mStat.count}"
                             th:text="${r.resourceName}">
                     </option>
                 </select>
+
+
                 <p>Name of resource: </p>
                 <input type="text" th:field="*{resourceName}">
 
