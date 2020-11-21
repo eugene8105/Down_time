@@ -11,24 +11,25 @@
         <div th:if="${not #lists.isEmpty(problem)}">
             <form action="#" th:action="@{/}" th:object="${problem}" method="post">
 
-                <span th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}" th:field="*{date}"></span>
+                <input type="hidden" th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}" th:field="*{date}"></input>
 
                 <label for="resourceList">
                     Name of resource:
                 </label>
                 <br/>
 
-<!--                Problem is here.-->
-                <select th:field="*{resourceList}" id="resourceList">
-                    <option th:each="r : ${resourceList}"
+<!--                * - mean this form-->
+<!--                {resourceName} - where it will go in the form-->
+                <select th:field="*{resourceName}" id="resourceList">
+
+                    <option th:each="r,mStat : ${resourceList}"
+<!--                            $ - it's a model passed to this form-->
+<!--                            {resourceName} - ti's a name inside the model-->
+<!--                            mStat - build in thymeleaf stuff-->
                             th:value="${mStat.count}"
                             th:text="${r.resourceName}">
                     </option>
                 </select>
-
-
-                <p>Name of resource: </p>
-                <input type="text" th:field="*{resourceName}">
 
                 <p>Time spend in minutes? </p>
                 <input type="text" th:field="*{timeSpend}">
