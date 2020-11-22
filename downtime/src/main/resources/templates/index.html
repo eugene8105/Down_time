@@ -21,11 +21,10 @@
 <!--                * - mean this form-->
 <!--                {resourceName} - where it will go in the form-->
                 <select th:field="*{resourceName}" id="resourceList">
-
+<!--                    $ - it's a model passed to this form-->
+<!--                    {resourceName} - ti's a name inside the model-->
+<!--                    mStat - build in thymeleaf stuff-->
                     <option th:each="r,mStat : ${resourceList}"
-<!--                            $ - it's a model passed to this form-->
-<!--                            {resourceName} - ti's a name inside the model-->
-<!--                            mStat - build in thymeleaf stuff-->
                             th:value="${mStat.count}"
                             th:text="${r.resourceName}">
                     </option>
