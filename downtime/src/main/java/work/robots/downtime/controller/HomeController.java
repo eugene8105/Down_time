@@ -45,6 +45,19 @@ public class HomeController {
         // saving an Problem object inside of database
         problem.setDate(formatDateTime);
         problemService.saveProblem(problem);
+
+        // test - clear the "problem" object
+//        problemService.clearProblem(problem);
+//        problem.setDate("");
+//        problem.setInitials("");
+//        problem.setLineNumber("");
+//        problem.setProgramName("");
+//        problem.setReason("");
+//        problem.setTimeSpend(0);
+//        problem.setWhichCell("");
+//        problem.setId(0);
+
+
         return "index";
     }
 }

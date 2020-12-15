@@ -5,4 +5,7 @@ import work.robots.downtime.entity.Problem;
 
 public interface ProblemService {
     void saveProblem(Problem problem);
+
+    // new method
+//    void clearProblem(Problem problem);
 }

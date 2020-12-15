@@ -13,7 +13,7 @@
 
         <div th:if="${not #lists.isEmpty(problem)}">
             <form action="#" th:action="@{/}" th:object="${problem}" method="post">
-
+<!--                If you want to make it work, you must not use th:field but the less magical th:value in your form-->
                 <input type="hidden" th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}" th:field="*{date}"></input>
 
                 <label for="resourceList">
