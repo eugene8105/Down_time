@@ -47,15 +47,13 @@ public class HomeController {
         problemService.saveProblem(problem);
 
         // test - clear the "problem" object
-//        problemService.clearProblem(problem);
-//        problem.setDate("");
-//        problem.setInitials("");
-//        problem.setLineNumber("");
-//        problem.setProgramName("");
-//        problem.setReason("");
-//        problem.setTimeSpend(0);
-//        problem.setWhichCell("");
-//        problem.setId(0);
+        problem.setDate("");
+        problem.setInitials("");
+        problem.setLineNumber("");
+        problem.setProgramName("");
+        problem.setReason("");
+        problem.setTimeSpend(0);
+        problem.setWhichCell("");
 
 
         return "index";

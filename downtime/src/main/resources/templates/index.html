@@ -13,7 +13,6 @@
 
         <div th:if="${not #lists.isEmpty(problem)}">
             <form action="#" th:action="@{/}" th:object="${problem}" method="post">
-<!--                If you want to make it work, you must not use th:field but the less magical th:value in your form-->
                 <input type="hidden" th:text="${#temporals.format(#temporals.createNow(), 'MM-dd-yyyy')}" th:field="*{date}"></input>
 
                 <label for="resourceList">
@@ -23,12 +22,13 @@
 
 <!--                * - mean this form-->
 <!--                {resourceName} - where it will go in the form-->
-                <select th:field="*{resourceName}" id="resourceList">
-<!--                    $ - it's a model passed to this form-->
-<!--                    {resourceName} - it's a name inside the model-->
-<!--                    mStat - build in thymeleaf stuff-->
-                    <option th:each="r,mStat : ${resourceList}"
-                            th:value="${mStat.count}"
+                <select id="resourceList" th:field="*{resourceName}">
+                    <!-- $ - it's a model passed to this form -->
+                    <!-- {resourceName} - it's a name inside the model -->
+                    <!-- We can use Thymeleaf mStat (status object) - that gives some useful
+                                                information about the iteration process. -->
+                    <option th:each="r : ${resourceList}"
+                            th:value="${mStat.resourceName}"
                             th:text="${r.resourceName}">
                     </option>
                 </select>
