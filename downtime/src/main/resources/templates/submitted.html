@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="fragments/frags :: head"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+
+<body>
+    <div class="submittedInfo" >
+        <div th:replace="fragments/frags :: header"></div>
+
+        <div class="my-3">
+<!--            <p><strong>Date and Time:</strong> <span th:text:="${problem.date}"></span></p>-->
+            <p><strong>Resource Name:</strong> <span th:text="${problem.resourceName}"></span></p>
+            <p><strong>Time Spend:</strong> <span th:text="${problem.timeSpend}"></span></p>
+            <p><strong>Reason:</strong> <span th:text="${problem.reason}"></span></p>
+            <p><strong>Which Cell If double arm system:</strong> <span th:text="${problem.whichCell}"></span></p>
+            <p><strong>Program Name:</strong> <span th:text="${problem.programName}"></span></p>
+            <p><strong>Line Number:</strong> <span th:text="${problem.lineNumber}"></span></p>
+            <p><strong>Initials who made the adjustments:</strong> <span th:text="${problem.initials}"></span></p>
+        </div>
+        <a th:href="@{/}">Back to form</a>
+
+    </div>
+
+    <div th:replace="fragments/frags :: disclaimer"></div>
+</div>
+</body>
+</html>

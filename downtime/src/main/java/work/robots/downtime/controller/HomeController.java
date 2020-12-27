@@ -38,24 +38,15 @@ public class HomeController {
     public String postShowMainPage(@ModelAttribute Problem problem, Model model) {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
         String formatDateTime = currentDateTime.format(format);
-
         model.addAttribute("problem", problem);
         // saving an Problem object inside of database
         problem.setDate(formatDateTime);
         problemService.saveProblem(problem);
 
-        // test - clear the "problem" object
-        problem.setDate("");
-        problem.setInitials("");
-        problem.setLineNumber("");
-        problem.setProgramName("");
-        problem.setReason("");
-        problem.setTimeSpend(0);
-        problem.setWhichCell("");
+        model.addAttribute("pageTitle", "Your input was successful");
 
-
-        return "index";
+        return "submitted";
     }
+
 }

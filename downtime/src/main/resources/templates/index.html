@@ -28,11 +28,11 @@
                     <!-- We can use Thymeleaf mStat (status object) - that gives some useful
                                                 information about the iteration process. -->
                     <option th:each="r : ${resourceList}"
-                            th:value="${mStat.resourceName}"
+                            th:value="${r.resourceName}"
                             th:text="${r.resourceName}">
                     </option>
                 </select>
-ds
+
                 <p>Time spend in minutes? </p>
                 <input type="text" th:field="*{timeSpend}">
 
@@ -52,7 +52,7 @@ ds
                 <input type="text" th:field="*{initials}">
 
                 <p>
-                    <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+                    <input type="submit" value="Submit"/>
                 </p>
             </form>
         </div>

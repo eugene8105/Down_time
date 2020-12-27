@@ -9,6 +9,9 @@ nav.navBar{
 .mainForm {
     text-align: center;
 }
+.submittedInfo {
+    text-align: center;
+}
 
 .div1 {
     grid-area: 1 / 1 / 3 / 2;
