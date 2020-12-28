@@ -26,7 +26,7 @@ public class HomeController {
     @GetMapping("/")
     public String showMainForm(Model model) {
         // passing title name to the model
-        model.addAttribute("pageTitle", "Robot down time error collector");
+        model.addAttribute("pageTitle", "Robot down time error form.");
         // passing resource name list to the model from database
         model.addAttribute("resourceList", resourceListService.getResources());
         // filling the data from the form in a Problem entity
@@ -37,11 +37,14 @@ public class HomeController {
     @PostMapping("/")
     public String postShowMainPage(@ModelAttribute Problem problem, Model model) {
         LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         String formatDateTime = currentDateTime.format(format);
         model.addAttribute("problem", problem);
         // saving an Problem object inside of database
         problem.setDate(formatDateTime);
+        if(problem.getWhichCell() == "") {
+            problem.setWhichCell("main");
+        }
         problemService.saveProblem(problem);
 
         model.addAttribute("pageTitle", "Your input was successful");

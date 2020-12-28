@@ -16,10 +16,4 @@ public class ProblemServiceImpl implements ProblemService {
         problemRepository.save(problem);
     }
 
-
-    // test method - trying clean an object for output in "index.html"
-//    @Override
-//    public void clearProblem(Problem problem) {
-//        problemRepository.delete(problem);
-//    }
 }

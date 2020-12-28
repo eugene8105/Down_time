@@ -8,7 +8,6 @@
         <div th:replace="fragments/frags :: header"></div>
 
         <div class="my-3">
-<!--            <p><strong>Date and Time:</strong> <span th:text:="${problem.date}"></span></p>-->
             <p><strong>Resource Name:</strong> <span th:text="${problem.resourceName}"></span></p>
             <p><strong>Time Spend:</strong> <span th:text="${problem.timeSpend}"></span></p>
             <p><strong>Reason:</strong> <span th:text="${problem.reason}"></span></p>
@@ -17,11 +16,12 @@
             <p><strong>Line Number:</strong> <span th:text="${problem.lineNumber}"></span></p>
             <p><strong>Initials who made the adjustments:</strong> <span th:text="${problem.initials}"></span></p>
         </div>
-        <a th:href="@{/}">Back to form</a>
-
+        <a th:href="@{/}">Back to the form</a>
+        <br>
+        <br>
+        <div id="disclaimerLine" th:replace="fragments/frags :: disclaimer"></div>
     </div>
 
-    <div th:replace="fragments/frags :: disclaimer"></div>
 </div>
 </body>
 </html>
